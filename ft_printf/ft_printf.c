@@ -6,7 +6,7 @@
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:43:02 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/01 15:00:06 by skamijo          ###   ########.fr       */
+/*   Updated: 2024/11/02 14:26:45 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,68 +60,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(ap);
 	return (ret);
-}
-
-void	va_arg_test(char *fmt, ...)
-{
-	va_list	ap;
-
-	va_start(ap, fmt);
-	while (fmt != NULL)
-	{
-		printf("%s\n", fmt);
-		fmt = va_arg(ap, char *);
-	}
-	va_end(ap);
-}
-
-void	sum_product(double *sum, double *product, int n, ...)
-{
-	va_list	ap;
-	va_list	dest;
-	int		i;
-
-	// nからスタートさせているのがポイント
-	va_start(ap, n);
-	va_copy(dest, ap);
-	*sum = 0.0;
-	*product = 0.0;
-	// 総和
-	i = 0;
-	while (i < n)
-	{
-		*sum += va_arg(ap, double);
-		i++;
-	}
-	// 総乗
-	*product = va_arg(dest, double);
-	i = 1;
-	while (i < n)
-	{
-		*product *= va_arg(dest, double);
-		i++;
-	}
-	va_end(ap);
-	va_end(dest);
-}
-
-int	main(void)
-{
-	double	sum;
-	double	product;
-	int		ret01;
-	int		ret02;
-
-	va_arg_test("aiueo", "test", "aaaaaa", NULL);
-	sum_product(&sum, &product, 4, 1.0, 2.0, 3.0, 4.0);
-	printf("総和 : %.1f\n", sum);
-	printf("総乗 : %.1f\n", product);
-	ft_putstr_fd("==========\n", STDOUT_FILENO);
-	ret01 = ft_printf("12[%c]8[%%][%s]e%wr[%i]d[%p]f[%%][%d]32fd[%u]wfht43[%x][%X]\n",
-			'A', "BiSH", 123, (void *)"BiSH", INT_MAX, UINT_MAX, 0xFF, 0x6ff);
-	ret02 = printf("12[%c]8[%%][%s]e%wr[%i]d[%p]f[%%][%d]32fd[%u]wfht43[%x][%X]\n",
-			'A', "BiSH", 123, (void *)"BiSH", INT_MAX, UINT_MAX, 0xFF, 0x6ff);
-	printf("length : %d\n", ret01);
-	printf("length : %d\n", ret02);
-	return (EXIT_SUCCESS);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_percent.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 10:40:16 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/02 14:26:05 by skamijo          ###   ########.fr       */
+/*   Created: 2024/10/22 09:40:07 by skamijo           #+#    #+#             */
+/*   Updated: 2024/10/27 17:23:16 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-t_bool	is_percent(char c)
+void	ft_putchar_fd(char c, int fd)
 {
-	return ((t_bool)(c == '%'));
+	write(fd, &c, 1);
 }

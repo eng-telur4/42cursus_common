@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_percent.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 10:40:16 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/02 14:26:05 by skamijo          ###   ########.fr       */
+/*   Created: 2024/10/22 09:45:56 by skamijo           #+#    #+#             */
+/*   Updated: 2024/10/29 11:59:00 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-t_bool	is_percent(char c)
+int	ft_isascii(int c)
 {
-	return ((t_bool)(c == '%'));
+	return (0 <= c && c <= 127);
 }

@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_percent.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 10:40:16 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/02 14:26:05 by skamijo          ###   ########.fr       */
+/*   Created: 2024/10/22 10:06:20 by skamijo           #+#    #+#             */
+/*   Updated: 2024/11/02 12:53:56 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-t_bool	is_percent(char c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	return ((t_bool)(c == '%'));
+	t_list	*now;
+
+	if (!lst)
+		return (0);
+	now = lst;
+	while (now->next)
+		now = now->next;
+	return (now);
 }

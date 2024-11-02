@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_percent.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 10:40:16 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/02 14:26:05 by skamijo          ###   ########.fr       */
+/*   Created: 2024/10/22 09:57:20 by skamijo           #+#    #+#             */
+/*   Updated: 2024/10/29 12:00:11 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-t_bool	is_percent(char c)
+char	*ft_strdup(const char *s)
 {
-	return ((t_bool)(c == '%'));
+	int		len;
+	char	*d;
+	int		i;
+
+	len = ft_strlen(s);
+	d = (char *)malloc((len + 1) * sizeof(char));
+	if (d == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	d[i] = '\0';
+	return (d);
 }

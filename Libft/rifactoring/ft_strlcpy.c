@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_percent.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 10:40:16 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/02 14:26:05 by skamijo          ###   ########.fr       */
+/*   Created: 2024/10/22 09:51:16 by skamijo           #+#    #+#             */
+/*   Updated: 2024/10/29 12:00:26 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-t_bool	is_percent(char c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	return ((t_bool)(c == '%'));
+	size_t	src_len;
+	size_t	i;
+
+	src_len = ft_strlen(src);
+	i = 0;
+	if (size == 0)
+		return (src_len);
+	while (i < size - 1 && src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (size > 0)
+		dst[i] = '\0';
+	return (src_len);
 }

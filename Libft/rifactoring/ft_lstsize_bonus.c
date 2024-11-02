@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_percent.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 10:40:16 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/02 14:26:05 by skamijo          ###   ########.fr       */
+/*   Created: 2024/10/22 10:05:29 by skamijo           #+#    #+#             */
+/*   Updated: 2024/10/27 17:22:56 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-t_bool	is_percent(char c)
+int	ft_lstsize(t_list *lst)
 {
-	return ((t_bool)(c == '%'));
+	t_list	*now;
+	int		count;
+
+	if (!lst)
+		return (0);
+	now = lst;
+	count = 1;
+	while (now->next)
+	{
+		count++;
+		now = now->next;
+	}
+	return (count);
 }

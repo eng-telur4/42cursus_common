@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_percent.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 10:40:16 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/02 14:26:05 by skamijo          ###   ########.fr       */
+/*   Created: 2024/10/22 09:54:41 by skamijo           #+#    #+#             */
+/*   Updated: 2024/10/29 14:32:03 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-t_bool	is_percent(char c)
+void	*ft_memchr(const void *b, int c, size_t len)
 {
-	return ((t_bool)(c == '%'));
+	unsigned char	*sp;
+	unsigned char	uc;
+
+	sp = (unsigned char *)b;
+	uc = (unsigned char)c;
+	while (len > 0)
+	{
+		if (*sp == uc)
+			return (sp);
+		len--;
+		sp++;
+	}
+	return (NULL);
 }
