@@ -59,7 +59,6 @@ ifeq ($(BONUS), 1)
 OBJS += $(BONUS_OBJS)
 endif
 
-# make もしくは make libft.a (make allも同じ)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
@@ -78,7 +77,3 @@ fclean: clean
 	$(RM) $(NAME) $(SO) a.out
 
 re: fclean all
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(MANDATORY_SRCS) $(BONUS_SRCS)
-	gcc -nostartfiles -shared -o $(SO) $(MANDATORY_OBJS) $(BONUS_OBJS)

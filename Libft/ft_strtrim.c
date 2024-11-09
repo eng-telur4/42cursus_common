@@ -6,7 +6,7 @@
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 09:36:54 by skamijo           #+#    #+#             */
-/*   Updated: 2024/10/29 15:28:00 by skamijo          ###   ########.fr       */
+/*   Updated: 2024/10/30 19:10:22 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static int	is_in_set(char c, const char *set)
 	return (0);
 }
 
-// 文字列s1の先頭と末尾から、特定の文字セットsetに含まれる文字を全て削除して、新しい文字列を返す
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
