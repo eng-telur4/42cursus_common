@@ -6,7 +6,7 @@
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:41:33 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/01 10:41:44 by skamijo          ###   ########.fr       */
+/*   Updated: 2024/11/10 03:19:30 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putnbr_fd_u(unsigned int n, int fd)
 {
-	int ret;
+	int	ret;
 
 	ret = 0;
 	if (n > 9)

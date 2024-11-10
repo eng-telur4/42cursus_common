@@ -6,11 +6,11 @@
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:39:59 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/10 03:03:11 by skamijo          ###   ########.fr       */
+/*   Updated: 2024/11/10 03:19:05 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "src/libft.h"
+#include "libft.h"
 
 static int	ft_isxdigit(int c)
 {

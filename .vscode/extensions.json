@@ -1,0 +1,15 @@
+{
+    "recommendations": [
+        "aaron-bond.better-comments",       // Better Comments
+        "oderwat.indent-rainbow",           // indent-rainbow
+        "vscode-icons-team.vscode-icons",   // vscode-icons
+        "yzhang.markdown-all-in-one",       // Markdown All in One
+        "mechatroner.rainbow-csv",          // Rainbow CSV
+        "ms-vscode.cpptools-extension-pack",// C/C++ Extension Pack
+        "kube.42header",                    // 42 Header
+        "evilcat.norminette-42",            // norminette-42
+        "keyhr.42-c-format",                // 42 C-Format
+        "dokca.42-ft-count-line",           // 42 ft count line
+        "ms-vscode.makefile-tools"          // Makefile Tools
+    ]
+}

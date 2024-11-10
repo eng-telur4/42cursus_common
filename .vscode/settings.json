@@ -1,0 +1,28 @@
+{
+    "editor.renderWhitespace": "boundary",
+    "explorer.compactFolders": false,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.formatOnSave": true,
+    "42header.username": "skamijo",
+    "42header.email": "skamijo@student.42.fr",
+    "norminette.command": "norminette",
+    "norminette.fileregex": "^ft.*\\.[ch]$",
+    "editor.insertSpaces": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "[c]": {
+        "editor.defaultFormatter": "keyhr.42-c-format"
+    },
+    "[h]": {
+        "editor.defaultFormatter": "keyhr.42-c-format"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "keyhr.42-c-format"
+    },
+    "[hpp]": {
+        "editor.defaultFormatter": "keyhr.42-c-format"
+    },
+    "files.associations": {
+        "libftprintf.h": "c"
+    }
+}

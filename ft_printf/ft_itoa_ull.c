@@ -6,7 +6,7 @@
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:40:44 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/01 10:40:54 by skamijo          ###   ########.fr       */
+/*   Updated: 2024/11/10 03:19:21 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*ft_itoa_ull(unsigned long long val, char *a, char *base,
 		unsigned long long radix)
 {
-	char *p;
-	unsigned long long v;
-	unsigned long long n;
+	char				*p;
+	unsigned long long	v;
+	unsigned long long	n;
 
 	p = a;
 	v = val;
