@@ -125,8 +125,8 @@ You will create your first machine in VirtualBox (or UTM if you can’t use Virt
 5. 「LVM」を使って、少なくとも2つの暗号化パーティションを作成する必要があります。以下は、想定されるパーティション分割の例です：
    - <img src="./image00.png" width=750>
 6. ディフェンスでは、選択したオペレーティング・システムについていくつか質問されます。例えば、aptitudeとaptの違いや、SELinuxやAppArmorとは何か、などです。要するに、自分が使っているものを理解するのです！
-7. [x] <span style="background-color: pink; color: black; font-weight: bold;">仮想マシンの必須ポート4242で「SSH」サービスが実行されます。セキュリティ上の理由から、rootとして「SSH」を使って接続することはできません。</span>
-8. [ ] <span style="background-color: pink; color: black; font-weight: bold;">SSHの使用は、新しいアカウントを設定することによって、防衛中にテストされます。そのため、その仕組みを理解しておく必要がある。</span>
+7. [x] <span style="background-color: pink; color: black; font-weight: bold;">仮想マシンの必須ポート4242で「SSH」サービスが実行されますセキュリティ上の理由から、rootとして「SSH」を使って接続することはできません。</span>
+8. [x] <span style="background-color: pink; color: black; font-weight: bold;">SSHの使用は、新しいアカウントを設定することによって、防衛中にテストされます。そのため、その仕組みを理解しておく必要がある。</span>
 9.  [x] <span style="background-color: pink; color: black; font-weight: bold;">オペレーティングシステムに「UFW」ファイアウォールを設定し、仮想マシンでポート 4242 のみを開放しておく必要があります。</span>
 10. [x] <span style="background-color: pink; color: black; font-weight: bold;">仮想マシンを起動する際には、ファイアウォールが有効になっている必要があります。</span>~~Rockyの場合は、UFWの代わりにfirewalldを使用する必要があります。~~
 11. \
@@ -141,34 +141,78 @@ You will create your first machine in VirtualBox (or UTM if you can’t use Virt
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">パスワードの有効期限は30日であること。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">パスワードが変更されるまでの最短日数は2日に設定される。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">ユーザーはパスワードの有効期限が切れる7日前に警告メッセージを受け取らなければならない。</span>
+      - PASS_MAX_DAYS 30
+      - PASS_MIN_DAYS 2
+      - PASS_WARN_AGE 7
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">パスワードは10文字以上でなければならない。大文字、小文字、数字を含む必要があります。また、同じ文字が3つ以上連続してはいけません。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">パスワードにはユーザー名を含めてはならない。</span>
-    - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">rootパスワードには、以下のルールは適用されない：パスワードには、以前のパスワードの一部ではない文字が少なくとも7文字含まれていなければならない。</span>
+    - [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">rootパスワードには、以下のルールは適用されない：パスワードには、以前のパスワードの一部ではない文字が少なくとも7文字含まれていなければならない。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">もちろん、ルート・パスワードはこのポリシーに従わなければならない。</span>
-14. [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">設定ファイルをセットアップした後、rootアカウントを含め、仮想マシンに存在するすべてのアカウントのパスワードを変更する必要があります。</span>
-15. [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">「sudo 」グループの文字列設定を行うには、以下の条件を満たす必要がある：</span>
+      | command          | meaning                                                     |
+      | :--------------- | :---------------------------------------------------------- |
+      | retry=3          | ユーザがパスワードを入力する際の最大試行回数を3回にする     |
+      | minlen=10        | パスワードの最小文字数を10文字にする                        |
+      | ucredit=-1       | パスワードに最低1文字の大文字を含める必要がある             |
+      | lcredit=-1       | パスワードに最低1文字の小文字を含める必要がある             |
+      | dcredit=-1       | パスワードに最低1文字の数字を含める必要がある               |
+      | maxrepeat=3      | 同じ文字が3回以上連続してはならない                         |
+      | reject_username  | パスワードはユーザ名を含めてはならない                      |
+      | difok=7          | 旧パスワードと比較して、少なくとも7文字以上異なる必要がある |
+      | enforce_for_root | この設定をrootユーザにも適用する                            |
+14. [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">設定ファイルをセットアップした後、rootアカウントを含め、仮想マシンに存在するすべてのアカウントのパスワードを変更する必要があります。</span>
+15. [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">「sudo 」グループの文字列設定を行うには、以下の条件を満たす必要がある：</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">「sudo」を使用した認証は、パスワードが間違っている場合の試行回数を3回に制限しなければならない。</span>
-    - [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">sudo "使用時にパスワード間違いによるエラーが発生した場合、任意のカスタムメッセージを表示する必要があります。</span>
-    - [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">sudo "を使用した各アクションは、入力と出力の両方をアーカイブする必要があります。ログファイルは「/var/log/sudo/」フォルダに保存されなければならない。</span>
-    - [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">セキュリティのため、「TTY 」モードを有効にしなければならない。</span>
-    - [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">セキュリティ上の理由から、「sudo 」で使用できるパスを制限しなければならない。</span><br>
+    - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">sudo "使用時にパスワード間違いによるエラーが発生した場合、任意のカスタムメッセージを表示する必要があります。</span>
+    - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">sudo "を使用した各アクションは、入力と出力の両方をアーカイブする必要があります。ログファイルは「/var/log/sudo/」フォルダに保存されなければならない。</span>
+    - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">セキュリティのため、「TTY 」モードを有効にしなければならない。</span>
+    - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">セキュリティ上の理由から、「sudo 」で使用できるパスを制限しなければならない。</span><br>
 	<span style="background-color: lightgreen; color: black; font-weight: bold;">例</span><br>
 	<span style="background-color: lightgreen; color: black; font-weight: bold;">「/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin」</span>
+
+      | command                                                                   | meaning                                                                                                            |
+      | :------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------- |
+      | Defaults	env_reset                                                        | sudo実行時に環境変数をリセットする                                                                                 |
+      | Defaults	mail_badpass                                                     | ユーザがsudoコマンドで誤ったパスワードを入力した場合、管理者(root)に通知メールを送る                               |
+      | Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin" | sudoコマンド実行時に適用される環境変数を設定する                                                                   |
+      | Defaults	badpass_message="Password is wrong, please try again!"           | ユーザがsudo実行時に誤ったパスワードを入力した場合に表示されるメッセージを変更する(デフォルト："Sorry, try again") |
+      | Defaults	passwd_tries=3                                                   | ユーザがパスワードを入力できる試行回数を3回に制限する                                                              |
+      | Defaults	logfile="/var/log/sudo/sudo.log"                                 | sudoコマンドのログを```/var/log/sudo/sudo.log```ファイルに記録する                                                 |
+      | Defaults	log_input, log_output                                            | sudo実行時の入力と出力をログに記録する(log_input:入力、log_output:出力)                                            |
+      | Defaults	requiretty                                                       | sudoを実行するときに、ユーザが仮想ターミナル(TTY)上で作業していることを必須とする                                  |
 16. [x] <span style="background-color: skyblue; color: black; font-weight: bold;">最後に、「[monitoring.sh](./monitoring.sh "monitoring.sh") 」という簡単なスクリプトを作成する。これは 「bash 」で開発しなければならない。</span>
-17. [ ] <span style="background-color: skyblue; color: black; font-weight: bold;">サーバー起動時に、このスクリプトは10分ごとにいくつかの情報（以下のリスト）をすべての端末に表示する（「wall 」を見てほしい）。バナーは任意である。エラーは表示してはならない。</span>
-18. [ ] <span style="background-color: skyblue; color: black; font-weight: bold;">スクリプトは常に以下の情報を表示できなければならない。</span>
+17. [x] <span style="background-color: skyblue; color: black; font-weight: bold;">サーバー起動時に、このスクリプトは10分ごとにいくつかの情報（以下のリスト）をすべての端末に表示する（「wall 」を見てほしい）。バナーは任意である。エラーは表示してはならない。</span>
+18. [x] <span style="background-color: skyblue; color: black; font-weight: bold;">スクリプトは常に以下の情報を表示できなければならない。</span>
+    - ```skamijo ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh```：skamijoユーザがこのファイルをパスワードなしで実行できるようにする
+    - ```*/10 * * * * /usr/local/bin/monitoring.sh```：このファイルを10分ごとに実行する
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">オペレーティングシステムのアーキテクチャとカーネルバージョン。</span>
+      - アーキテクチャ情報：```arc=$(uname -a)```
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">物理プロセッサの数。</span>
+      - 物理 CPU 数：```pcpu=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)```
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">仮想プロセッサ数</span>
+      - 仮想 CPU（コア）数：```vcpu=$(grep "^processor" /proc/cpuinfo | wc -l)```
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">サーバーで現在使用可能な「RAM」と、その使用率（パーセンテージ）。</span>
+      - 全体のメモリ容量 (MB)：```fram=$(free -m | awk '$1 == "Mem:" {print $2}')```
+      - 使用中のメモリ容量 (MB)：```uram=$(free -m | awk '$1 == "Mem:" {print $3}')```
+      - メモリ使用率 (%)：```pram=$(free | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')```
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">サーバーで現在使用可能なストレージとその使用率（パーセンテージ）。</span>
+      - 総ディスク容量 (GB)：```fdisk=$(df -BG | grep '^/dev/' | grep -v '/boot$' | awk '{ft += $2} END {print ft}')```
+      - 使用中のディスク容量 (MB)：```udisk=$(df -BM | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} END {print ut}')```
+      - ディスク使用率 (%)：```pdisk=$(df -BM | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} {ft+= $2} END {printf("%d"), ut/ft*100}')```
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">現在のプロセッサの使用率（パーセンテージ）。</span>
+      - CPU負荷：```cpul=$(top -bn1 | grep '^%Cpu' | cut -c 9- | xargs | awk '{printf("%.1f%%"), $1 + $3}')```
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">最後に再起動した日時。</span>
+      - 最後のシステム起動時刻：```lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')```
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">LVM がアクティブかどうか。</span>
+      - LVM（Logical Volume Manager）の使用状況：```lvmu=$(if [ $(lsblk | grep "lvm" | wc -l) -eq 0 ]; then echo no; else echo yes; fi)```
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">アクティブな接続数。</span>
+      - TCP接続数：```ctcp=$(ss -Ht state established | wc -l)```
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">サーバーを使用しているユーザー数。</span>
+      - ログイン中のユーザー数：```ulog=$(users | wc -w)```
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">サーバーのIPv4アドレスとMAX（Media Access Control）アドレス。</span>
-    - [ ] <span style="background-color: skyblue; color: black; font-weight: bold;">「sudo」プログラムで実行されたコマンドの数。</span>
+      - IPアドレス：```ip=$(hostname -I)```
+      - MACアドレス：```mac=$(ip link show | grep "ether" | awk '{print $2}')```
+    - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">「sudo」プログラムで実行されたコマンドの数。</span>
+      - sudo コマンドの実行回数：```cmds=$(journalctl _COMM=sudo | grep COMMAND | wc -l)```
 19. [ ] <span style="background-color: skyblue; color: black; font-weight: bold;">守備では、このスクリプトがどのように機能するかを説明するよう求められる。 また、スクリプトを修正せずに中断する必要があります。 cronを見てください。</span>
 20. [x] <span style="background-color: skyblue; color: black; font-weight: bold;">これは、スクリプトがどのように動作するかの例です。</span>
 21. [x] <span style="background-color: skyblue; color: black; font-weight: bold;">以下は、対象の要件のいくつかをチェックするために使用できる2つのコマンドです：</span>
