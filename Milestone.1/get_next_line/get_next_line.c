@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 09:52:59 by skamijo           #+#    #+#             */
-/*   Updated: 2024/10/29 15:07:22 by skamijo          ###   ########.fr       */
+/*   Created: 2024/10/28 16:11:01 by skamijo           #+#    #+#             */
+/*   Updated: 2024/11/26 08:46:27 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
-char	*ft_strchr(const char *s, int c)
+#define BUFFER_SIZE 8192
+
+typedef struct s_fd_info
 {
-	while (*s != (char)c)
-	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
-	}
-	return ((char *)s);
+	int	fd;
+	int	line_num;
+}		t_fd_info;
+
+// t_fd_info	*allocate_info_mem(fd)
+
+// static変数に構造体配列をいれる
+char	*get_next_line(int fd)
+{
+	// static t_fd_info	*info;
+}
+
+int	main(void)
+{
+	return (0);
 }

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 09:52:59 by skamijo           #+#    #+#             */
-/*   Updated: 2024/10/29 15:07:22 by skamijo          ###   ########.fr       */
+/*   Created: 2024/10/29 15:40:59 by skamijo           #+#    #+#             */
+/*   Updated: 2024/11/26 08:42:57 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*ft_strchr(const char *s, int c)
+# include <stdio.h>
+
+typedef struct s_list
 {
-	while (*s != (char)c)
-	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
-	}
-	return ((char *)s);
-}
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
+#endif // GET_NEXT_LINE_H

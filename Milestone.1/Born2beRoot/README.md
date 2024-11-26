@@ -154,7 +154,7 @@ You will create your first machine in VirtualBox (or UTM if you can’t use Virt
     - [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">セキュリティ上の理由から、「sudo 」で使用できるパスを制限しなければならない。</span><br>
 	<span style="background-color: lightgreen; color: black; font-weight: bold;">例</span><br>
 	<span style="background-color: lightgreen; color: black; font-weight: bold;">「/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin」</span>
-16. [x] <span style="background-color: skyblue; color: black; font-weight: bold;">最後に、「monitoring.sh 」という簡単なスクリプトを作成する。これは 「bash 」で開発しなければならない。</span>
+16. [x] <span style="background-color: skyblue; color: black; font-weight: bold;">最後に、「[monitoring.sh](./monitoring.sh "monitoring.sh") 」という簡単なスクリプトを作成する。これは 「bash 」で開発しなければならない。</span>
 17. [ ] <span style="background-color: skyblue; color: black; font-weight: bold;">サーバー起動時に、このスクリプトは10分ごとにいくつかの情報（以下のリスト）をすべての端末に表示する（「wall 」を見てほしい）。バナーは任意である。エラーは表示してはならない。</span>
 18. [ ] <span style="background-color: skyblue; color: black; font-weight: bold;">スクリプトは常に以下の情報を表示できなければならない。</span>
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">オペレーティングシステムのアーキテクチャとカーネルバージョン。</span>
