@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 23:13:17 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/25 23:47:11 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 15:59:05 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void	*trd_gen(void *line_trd)
 		}
 		y += MAX_THREADS;
 		pix += ltrd->rt->img.line_length * (MAX_THREADS - 1);
-		put_screen_processing(ltrd->rt);
+		// put_screen_processing(ltrd->rt);
+		mlx_put_image_to_window(ltrd->rt->mlx, ltrd->rt->mlx_win, ltrd->rt->img.img, 0, 0);
 	}
 	return (NULL);
 }
