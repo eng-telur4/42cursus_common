@@ -5,135 +5,80 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 08:42:25 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/26 08:43:31 by skamijo          ###   ########.fr       */
+/*   Created: 2022/01/09 21:19:42 by bgoncalv          #+#    #+#             */
+/*   Updated: 2025/02/09 15:33:08 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+size_t	ft_linelen(char *s)
 {
-	t_list	*last;
+	size_t	l;
 
-	if (*lst)
-	{
-		last = ft_lstlast(*lst);
-		last->next = new;
-	}
-	else
-		*lst = new;
-}
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (*lst)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
-	else
-		*lst = new;
-}
-
-void	ft_lstclear(t_list **lst, void (*del)(void *))
-{
-	t_list	*current;
-	t_list	*next_node;
-
-	if (!lst || !del)
-		return ;
-	current = *lst;
-	while (current)
-	{
-		next_node = current->next;
-		del(current->content);
-		free(current);
-		current = next_node;
-	}
-	*lst = NULL;
-}
-
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
-{
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
-}
-
-void	ft_lstiter(t_list *lst, void (*f)(void *))
-{
-	t_list	*now;
-
-	if (!lst)
-		return ;
-	now = lst;
-	f(now->content);
-	while (now->next)
-	{
-		now = now->next;
-		f(now->content);
-	}
-}
-
-t_list	*ft_lstlast(t_list *lst)
-{
-	t_list	*now;
-
-	if (!lst)
+	if (!s)
 		return (0);
-	now = lst;
-	while (now->next)
-		now = now->next;
-	return (now);
+	l = 0;
+	while (s[l])
+		l++;
+	return (l);
 }
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+int	ft_hasline(char *s)
 {
-	t_list	*new_lst;
-	t_list	*new_elem;
-
-	new_lst = NULL;
-	while (lst)
-	{
-		new_elem = ft_lstnew(f(lst->content));
-		if (!new_elem)
-		{
-			ft_lstclear(&new_lst, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new_lst, new_elem);
-		lst = lst->next;
-	}
-	return (new_lst);
+	if (!s)
+		return (0);
+	while (*s++)
+		if (*s == '\n')
+			return (1);
+	return (0);
 }
 
-t_list	*ft_lstnew(void *content)
+char	*ft_strndup(char *s, size_t n)
 {
-	t_list	*ret_val;
+	size_t	i;
+	char	*dst;
+	size_t	l;
 
-	ret_val = (t_list *)malloc(sizeof(t_list));
-	if (!ret_val)
+	if (n < ft_linelen(s))
+		l = n;
+	else
+		l = ft_linelen(s);
+	dst = malloc(l + 1);
+	if (!dst)
 		return (NULL);
-	ret_val->content = content;
-	ret_val->next = NULL;
-	return (ret_val);
+	i = 0;
+	while (i < l && s[i])
+	{
+		dst[i] = s[i];
+		i++;
+	}
+	dst[i] = 0;
+	return (dst);
 }
 
-int	ft_lstsize(t_list *lst)
+char	*ft_strjoin2(char *s1, char *s2)
 {
-	t_list	*now;
-	int		count;
+	char	*dst;
+	char	*s;
+	size_t	i;
+	size_t	l;
 
-	if (!lst)
-		return (0);
-	now = lst;
-	count = 1;
-	while (now->next)
-	{
-		count++;
-		now = now->next;
-	}
-	return (count);
+	s = s1;
+	l = ft_linelen(s1);
+	if (ft_linelen(s2))
+		l += ft_linelen(s2);
+	dst = malloc(l + 1);
+	if (!dst)
+		return (NULL);
+	i = 0;
+	if (s1)
+		while (*s1)
+			dst[i++] = *(s1++);
+	if (s2)
+		while (*s2)
+			dst[i++] = *(s2++);
+	dst[i] = 0;
+	free(s);
+	return (dst);
 }
