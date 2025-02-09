@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:34:39 by rpinto-r          #+#    #+#             */
-/*   Updated: 2022/04/22 16:41:23 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:55:04 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-/* 
+
+/*
 void	rt_dump(t_rt *rt)
 {
 	t_obj	*tmp;
-	t_light		*tmp2;
+	t_light	*tmp2;
 
 	if (rt->ambient.id == id_ambient)
 	{

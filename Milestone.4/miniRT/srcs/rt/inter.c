@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inter.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 20:10:41 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/25 23:45:16 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:54:47 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,18 +94,15 @@ t_bool	cylinder_inter(t_ray *r, t_cylinder *cy, t_hit *hit)
 	hit->t = INFINITY;
 	pl.coords = cy->p1;
 	pl.orient = cy->orient;
-	if (plane_inter(r, &pl, &tmp_hit)
-		&& distance(tmp_hit.phit, cy->p1)
-		<= cy->diameter * 0.5 && hit->t > tmp_hit.t)
+	if (plane_inter(r, &pl, &tmp_hit) && distance(tmp_hit.phit,
+			cy->p1) <= cy->diameter * 0.5 && hit->t > tmp_hit.t)
 		*hit = tmp_hit;
 	pl.coords = cy->p2;
-	if (plane_inter(r, &pl, &tmp_hit)
-		&& distance(tmp_hit.phit, cy->p2) <= cy->diameter * 0.5
-		&& hit->t > tmp_hit.t)
+	if (plane_inter(r, &pl, &tmp_hit) && distance(tmp_hit.phit,
+			cy->p2) <= cy->diameter * 0.5 && hit->t > tmp_hit.t)
 		*hit = tmp_hit;
-	if (infinite_cyl_inter(r, cy, &tmp_hit)
-		&& pow(distance(cy->coords, tmp_hit.phit), 2)
-		<= pow(cy->height * 0.5, 2) + cy->r2
+	if (infinite_cyl_inter(r, cy, &tmp_hit) && pow(distance(cy->coords,
+				tmp_hit.phit), 2) <= pow(cy->height * 0.5, 2) + cy->r2
 		&& hit->t > tmp_hit.t)
 		*hit = tmp_hit;
 	return (hit->t < INFINITY && hit->t > EPSILON);
@@ -147,14 +144,12 @@ t_bool	cone_inter(t_ray *r, t_cone *co, t_hit *hit)
 	hit->t = INFINITY;
 	pl.coords = co->c1;
 	pl.orient = co->orient;
-	if (plane_inter(r, &pl, &tmp_hit)
-		&& distance(tmp_hit.phit, co->c1)
-		<= co->r1 && hit->t > tmp_hit.t)
+	if (plane_inter(r, &pl, &tmp_hit) && distance(tmp_hit.phit,
+			co->c1) <= co->r1 && hit->t > tmp_hit.t)
 		*hit = tmp_hit;
 	pl.coords = co->c2;
-	if (plane_inter(r, &pl, &tmp_hit)
-		&& distance(tmp_hit.phit, co->c2)
-		<= co->r2 && hit->t > tmp_hit.t)
+	if (plane_inter(r, &pl, &tmp_hit) && distance(tmp_hit.phit,
+			co->c2) <= co->r2 && hit->t > tmp_hit.t)
 		*hit = tmp_hit;
 	if (conic_inter(r, co, &tmp_hit) && hit->t > tmp_hit.t)
 		*hit = tmp_hit;
@@ -191,7 +186,7 @@ t_bool	triangle_inter(t_ray *r, t_triangle *t, t_hit *hit)
 	return (TRUE);
 }
 
-typedef	struct s_tor_solve
+typedef struct s_tor_solve
 {
 	float	a;
 	float	b;
@@ -204,8 +199,7 @@ typedef	struct s_tor_solve
 	float	j;
 	float	k;
 	float	l;
-}	t_tor_solve;
-
+}			t_tor_solve;
 
 t_bool	torus_inter(t_ray *r, t_torus *t, t_hit *hit)
 {
@@ -218,10 +212,11 @@ t_bool	torus_inter(t_ray *r, t_torus *t, t_hit *hit)
 	(void)dir;
 	return (FALSE);
 	dir = r->dir;
-	dir2 = vector(r->dir.x * r->dir.x, r->dir.y * r->dir.y, r->dir.z * r->dir.z);
+	dir2 = vector(r->dir.x * r->dir.x, r->dir.y * r->dir.y, r->dir.z
+			* r->dir.z);
 	solve.g = 4 * t->big_r2 * (dir2.x + dir2.y);
 	solve.h = 8 * t->big_r2 * (dir2.x + dir2.y);
-	solve.i= 4 * t->big_r2 * (dir2.x + dir2.y);
+	solve.i = 4 * t->big_r2 * (dir2.x + dir2.y);
 	solve.j = 4 * t->big_r2 * (dir2.x + dir2.y);
 	solve.k = 4 * t->big_r2 * (dir2.x + dir2.y);
 	solve.l = 4 * t->big_r2 * (dir2.x + dir2.y);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   object_norm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 16:36:43 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/22 16:39:53 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:55:41 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void	handle_img(t_rt *rt, t_obj *obj)
 	}
 	if (obj->has_bump && !obj->bump.img)
 	{
-		obj->bump.img = mlx_xpm_file_to_image(rt->mlx,
-				obj->bump.path, &obj->bump.width, &obj->bump.height);
+		obj->bump.img = mlx_xpm_file_to_image(rt->mlx, obj->bump.path,
+				&obj->bump.width, &obj->bump.height);
 		if (!obj->bump.img)
 			obj->has_bump = FALSE;
 		else
@@ -89,7 +89,7 @@ void	object_norm(t_rt *rt)
 
 	cam = &rt->camera;
 	cam->scale = tan(cam->fov / 2 * M_PI / 180);
-	rt->aspectratio = (float) rt->width / rt->height;
+	rt->aspectratio = (float)rt->width / rt->height;
 	rt->img.addr_incr = rt->img.bits_per_pixel / 8;
 	rt->bg_color = rgb2color(0x424242);
 	lookat(rt);

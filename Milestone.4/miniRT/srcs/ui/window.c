@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brunodeoliveira <brunodeoliveira@studen    +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 23:13:13 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/24 07:48:21 by brunodeoliv      ###   ########.fr       */
+/*   Updated: 2025/02/09 20:55:29 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	rt_init(t_rt *rt, char *path)
 {
 	rt->mlx = mlx_init();
 	if (!rt->width)
-		rt->width = (float) WIN_WIDTH;
+		rt->width = (float)WIN_WIDTH;
 	if (!rt->height)
-		rt->height = (float) WIN_HEIGHT;
+		rt->height = (float)WIN_HEIGHT;
 	if (rt->height < rt->width)
 		rt->aspectratio = rt->width / rt->height;
 	else

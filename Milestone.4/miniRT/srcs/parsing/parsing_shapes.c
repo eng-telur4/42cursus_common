@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_shapes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 01:39:44 by rpinto-r          #+#    #+#             */
-/*   Updated: 2022/04/26 00:29:53 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:54:32 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	parse_cylinder(t_rt *rt, char **params, t_obj *obj)
 			return (show_parsing_error(rt, params, ERR_NOT_A_FLOAT));
 		if (i == 5 && parse_colors(params[i], &obj->color, &obj->color2))
 			return (show_parsing_error(rt, params, ERR_INVALID_NB_COLORS));
-	}	
+	}
 	normalize(&cylinder.orient);
 	cylinder.coords = obj->coords;
 	obj->object.cylinder = cylinder;
@@ -131,7 +131,7 @@ int	parse_triangle(t_rt *rt, char **params, t_obj *obj)
 			return (show_parsing_error(rt, params, ERR_INVALID_NB_COORDS));
 		if (i == 4 && parse_colors(params[i], &obj->color, &obj->color2))
 			return (show_parsing_error(rt, params, ERR_INVALID_NB_COLORS));
-	}	
+	}
 	triangle.color = obj->color;
 	obj->object.triangle = triangle;
 	return (0);
@@ -158,7 +158,7 @@ int	parse_torus(t_rt *rt, char **params, t_obj *obj)
 			return (show_parsing_error(rt, params, ERR_NOT_A_FLOAT));
 		if (i == 5 && parse_colors(params[i], &obj->color, &obj->color2))
 			return (show_parsing_error(rt, params, ERR_INVALID_NB_COLORS));
-	}	
+	}
 	normalize(&torus.orient);
 	torus.coords = obj->coords;
 	obj->object.torus = torus;

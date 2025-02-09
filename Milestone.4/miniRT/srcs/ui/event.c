@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgoncalv <bgoncalv@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 23:41:37 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/17 01:56:42 by bgoncalv         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:55:14 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	exit_win(t_rt *rt)
 
 static int	handle_no_event(t_rt *rt)
 {
-	(void) rt;
+	(void)rt;
 	return (0);
 }
 

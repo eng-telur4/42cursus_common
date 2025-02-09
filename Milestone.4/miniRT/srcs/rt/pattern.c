@@ -36,10 +36,10 @@ void	set_patternref(t_rt *rt, t_obj *obj)
 
 void	uv_sphere_map(t_obj *obj, t_vect p, float *uv)
 {
-	t_vect		v;
-	float		x;
-	float		y;
-	float		z;
+	t_vect	v;
+	float	x;
+	float	y;
+	float	z;
 
 	v = vect_sub(obj->coords, p);
 	normalize(&v);
@@ -61,10 +61,10 @@ void	uv_plane_map(t_obj *obj, t_vect p, float *uv)
 
 void	uv_cylco_map(t_obj *obj, t_vect p, float *uv)
 {
-	t_vect		v;
-	float		x;
-	float		y;
-	float		z;
+	t_vect	v;
+	float	x;
+	float	y;
+	float	z;
 
 	v = vect_sub(obj->coords, p);
 	y = dot_prod(obj->ey, v);
@@ -89,7 +89,7 @@ t_color	pattern_color(t_obj *obj, t_vect phit)
 	if (obj->id == id_cylinder || obj->id == id_cone)
 		uv_cylco_map(obj, phit, uv);
 	if (obj->pattern_num == 1 && (((int)(uv[0] * obj->pattern_len) + (int)(uv[1]
-			* obj->pattern_len)) & 1))
+					* obj->pattern_len)) & 1))
 		return (obj->color);
 	if (obj->pattern_num == 2 && ((int)(uv[0] * obj->pattern_len)) & 1)
 		return (obj->color);

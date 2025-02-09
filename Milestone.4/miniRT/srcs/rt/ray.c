@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 18:48:55 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/22 16:16:17 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:54:53 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	build_ray(t_ray *ray, t_vect *or, t_vect *dir)
+void	build_ray(t_ray *ray, t_vect * or, t_vect *dir)
 {
 	ray->or.x = or->x;
 	ray->or.y = or->y;
@@ -62,9 +62,9 @@ void	build_camray(t_rt *rt, t_ray *ray, float x, float y)
 
 	cam = &rt->camera;
 	ray->or = vector(cam->coords.x, cam->coords.y, cam->coords.z);
-	ray->dir.x = (2.0 * (x + 0.5) / (float) rt->width - 1.0)
-		* cam->scale * rt->aspectratio;
-	ray->dir.y = (1.0 - 2.0 * (y + 0.5) / (float) rt->height) * cam->scale;
+	ray->dir.x = (2.0 * (x + 0.5) / (float)rt->width - 1.0) * cam->scale
+		* rt->aspectratio;
+	ray->dir.y = (1.0 - 2.0 * (y + 0.5) / (float)rt->height) * cam->scale;
 	ray->dir.z = FOCAL_DIST;
 	ray->dir = cam2world(rt->cam_matrix, &ray->dir);
 	normalize(&ray->dir);

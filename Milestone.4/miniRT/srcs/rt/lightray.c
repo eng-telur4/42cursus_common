@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lightray.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 01:27:28 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/22 16:34:09 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:54:49 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ t_bool	shadow_ray(t_rt *rt, t_rays *r, t_light *light)
 	normalize(&r->shadowray.dir);
 	ray_mul(&r->shadowray.or, &r->shadowray, 0.01);
 	return (get_closest_obj(&r->shadowray, rt->objs, &r->shadow_hit)
-		&& distance(r->shadowray.or, light->coords)
-		> distance(r->shadow_hit.phit, r->shadowray.or));
+		&& distance(r->shadowray.or,
+			light->coords) > distance(r->shadow_hit.phit, r->shadowray.or));
 }
 
 t_color	refraction_ray(t_rt *rt, t_rays *r, int max_reflect)
@@ -68,7 +68,7 @@ t_color	refraction_ray(t_rt *rt, t_rays *r, int max_reflect)
 
 t_color	reflection_ray(t_rt *rt, t_rays *r, int max_reflect)
 {
-	t_rays		reflect;
+	t_rays	reflect;
 
 	reflect.prime_ray.or = r->hit.phit;
 	reflect.prime_ray.dir = reflect_vect(r->prime_ray.dir, r->hit.nhit);

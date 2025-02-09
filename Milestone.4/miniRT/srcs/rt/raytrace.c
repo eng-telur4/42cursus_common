@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raytrace.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 01:22:36 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/22 16:27:30 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:54:55 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ void	handle_lights(t_rt *rt, t_rays *r, t_colors *colors)
 	{
 		colors->is_shadow = shadow_ray(rt, r, l);
 		if (!colors->is_shadow)
-			colors->diffuse = mix_color(colors->diffuse, 1,
-					diffuse_light(r, l), 1);
+			colors->diffuse = mix_color(colors->diffuse, 1, diffuse_light(r, l),
+					1);
 		if (!colors->is_shadow)
-			colors->specular = mix_color(colors->specular, 1,
-					specular_light(r, l), 1);
+			colors->specular = mix_color(colors->specular, 1, specular_light(r,
+						l), 1);
 		l = l->next;
 	}
 }

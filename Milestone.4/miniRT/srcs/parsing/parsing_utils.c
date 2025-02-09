@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 01:37:46 by rpinto-r          #+#    #+#             */
-/*   Updated: 2022/04/21 22:49:01 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:54:34 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ int	parse_color(char *str, t_color *color)
 		ret = 1;
 	else
 	{
-		color->r = (float) str_to_int_color(rgb[0]) / 255;
-		color->g = (float) str_to_int_color(rgb[1]) / 255;
-		color->b = (float) str_to_int_color(rgb[2]) / 255;
+		color->r = (float)str_to_int_color(rgb[0]) / 255;
+		color->g = (float)str_to_int_color(rgb[1]) / 255;
+		color->b = (float)str_to_int_color(rgb[2]) / 255;
 	}
 	free_array(rgb);
 	return (ret);

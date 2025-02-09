@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 16:31:28 by rpinto-r          #+#    #+#             */
-/*   Updated: 2022/04/25 23:35:39 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:54:38 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,26 @@ int	parse_extra_params(t_rt *rt, t_obj *obj, char **params, int i)
 	while (params && params[++i])
 	{
 		rt->pnum = i;
-		if (ft_strncmp(params[i], "spc", 3) == 0
-			&& parse_specular(params[i] + 4, obj))
+		if (ft_strncmp(params[i], "spc", 3) == 0 && parse_specular(params[i]
+				+ 4, obj))
 			return (show_parsing_error(rt, params, ERR_INVALID_SPEC_PARAMS));
-		if (ft_strncmp(params[i], "mir", 3) == 0
-			&& parse_float(params[i] + 4, &obj->mirror))
+		if (ft_strncmp(params[i], "mir", 3) == 0 && parse_float(params[i] + 4,
+				&obj->mirror))
 			return (show_parsing_error(rt, params, ERR_NOT_A_FLOAT));
-		if (ft_strncmp(params[i], "ref", 3) == 0
-			&& parse_float(params[i] + 4, &obj->refract))
+		if (ft_strncmp(params[i], "ref", 3) == 0 && parse_float(params[i] + 4,
+				&obj->refract))
 			return (show_parsing_error(rt, params, ERR_NOT_A_FLOAT));
-		if (ft_strncmp(params[i], "pat", 3) == 0
-			&& parse_pattern(params[i] + 4, obj))
+		if (ft_strncmp(params[i], "pat", 3) == 0 && parse_pattern(params[i] + 4,
+				obj))
 			return (show_parsing_error(rt, params, ERR_INVALID_PATTERN_PARAMS));
-		if (ft_strncmp(params[i], "bum", 3) == 0
-			&& parse_bump(params[i] + 4, obj))
+		if (ft_strncmp(params[i], "bum", 3) == 0 && parse_bump(params[i] + 4,
+				obj))
 			return (show_parsing_error(rt, params, ERR_INVALID_BUMP_PARAMS));
-		if (ft_strncmp(params[i], "txm", 3) == 0
-			&& parse_texture(params[i] + 4, obj))
+		if (ft_strncmp(params[i], "txm", 3) == 0 && parse_texture(params[i] + 4,
+				obj))
 			return (show_parsing_error(rt, params, ERR_INVALID_TEXTURE_PARAMS));
-		if (ft_strncmp(params[i], "alp", 3) == 0 && parse_float(params[i] + 4, &obj->alpha))
+		if (ft_strncmp(params[i], "alp", 3) == 0 && parse_float(params[i] + 4,
+				&obj->alpha))
 			return (show_parsing_error(rt, params, ERR_NOT_A_FLOAT));
 	}
 	return (0);
@@ -85,8 +86,8 @@ int	parse_shape(t_rt *rt, char *line, t_obj_id id, int nb_params)
 		return (1);
 	if (id == id_triangle && parse_triangle(rt, params, obj))
 		return (1);
-	if (array_length(params) > nb_params
-		&& parse_extra_params(rt, obj, params, nb_params - 1))
+	if (array_length(params) > nb_params && parse_extra_params(rt, obj, params,
+			nb_params - 1))
 		return (1);
 	free_array(params);
 	return (0);

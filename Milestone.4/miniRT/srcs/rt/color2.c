@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 00:25:15 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/25 17:49:00 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:54:46 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_color	mix_color(t_color c1, float p1, t_color c2, float p2)
 	return (dst);
 }
 
-int	big_mix(t_color	c[9])
+int	big_mix(t_color c[9])
 {
 	t_color	r;
 	int		i;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bump.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 14:46:54 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/22 16:30:02 by rpinto-r         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:54:41 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ void	bump_normal(t_obj *obj, t_img *img, t_hit *hit)
 	y[0] = (int)((1 - uv[1]) * img->height);
 	x[1] = (x[0] + 1) % img->width;
 	y[1] = (y[0] + 1) % img->height;
-	dst = img->addr
-		+ (y[0] * img->line_length + x[0] * (img->bits_per_pixel / 8));
+	dst = img->addr + (y[0] * img->line_length + x[0] * (img->bits_per_pixel
+				/ 8));
 	c[0] = *((unsigned int *)dst) & 0xff;
-	dst = img->addr
-		+ (y[0] * img->line_length + x[1] * (img->bits_per_pixel / 8));
+	dst = img->addr + (y[0] * img->line_length + x[1] * (img->bits_per_pixel
+				/ 8));
 	c[1] = *((unsigned int *)dst) & 0xff;
 	uv[0] = -((float)(c[0] - c[1])) / 10;
-	dst = img->addr
-		+ (y[1] * img->line_length + x[0] * (img->bits_per_pixel / 8));
+	dst = img->addr + (y[1] * img->line_length + x[0] * (img->bits_per_pixel
+				/ 8));
 	c[1] = *((unsigned int *)dst) & 0xff;
 	uv[1] = -((float)(c[0] - c[1])) / 10;
 	hit->nhit = process_bump_normal(obj, hit->nhit, uv[0], uv[1]);

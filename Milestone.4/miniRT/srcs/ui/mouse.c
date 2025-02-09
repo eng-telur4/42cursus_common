@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brunodeoliveira <brunodeoliveira@studen    +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 02:19:31 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/24 07:52:17 by brunodeoliv      ###   ########.fr       */
+/*   Updated: 2025/02/09 20:55:23 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	handle_mousedown(int button, int x, int y, t_rt *rt)
 
 int	handle_mouseup(int button, int x, int y, t_rt *rt)
 {
-	(void) x;
-	(void) y;
+	(void)x;
+	(void)y;
 	if (button != LEFT_CLICK)
 		return (0);
 	rt->event.mouse &= ~(1 << button);

@@ -6,7 +6,7 @@
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 23:13:17 by bgoncalv          #+#    #+#             */
-/*   Updated: 2025/02/09 15:59:05 by skamijo          ###   ########.fr       */
+/*   Updated: 2025/02/09 20:55:17 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ t_color	get_pixelcolor(t_img *img, float xf, float yf)
 	y = (int)((1 - yf) * img->height);
 	if (0 <= x && x < img->width && 0 <= y && y < img->height)
 	{
-		dst = img->addr
-			+ (y * img->line_length + x * (img->bits_per_pixel / 8));
+		dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel
+					/ 8));
 		return (rgb2color(*(unsigned int *)dst));
 	}
 	return (newcolor(0, 0, 0));
@@ -36,7 +36,7 @@ void	*trd_gen(void *line_trd)
 	char		*pix;
 	t_line_trd	*ltrd;
 
-	ltrd = (t_line_trd *) line_trd;
+	ltrd = (t_line_trd *)line_trd;
 	y = ltrd->i;
 	pix = ltrd->rt->img.addr;
 	pix += ltrd->rt->img.line_length * ltrd->i;
@@ -51,7 +51,8 @@ void	*trd_gen(void *line_trd)
 		y += MAX_THREADS;
 		pix += ltrd->rt->img.line_length * (MAX_THREADS - 1);
 		// put_screen_processing(ltrd->rt);
-		mlx_put_image_to_window(ltrd->rt->mlx, ltrd->rt->mlx_win, ltrd->rt->img.img, 0, 0);
+		mlx_put_image_to_window(ltrd->rt->mlx, ltrd->rt->mlx_win,
+			ltrd->rt->img.img, 0, 0);
 	}
 	return (NULL);
 }
