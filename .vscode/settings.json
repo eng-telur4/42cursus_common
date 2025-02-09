@@ -23,6 +23,7 @@
         "editor.defaultFormatter": "keyhr.42-c-format"
     },
     "files.associations": {
-        "libftprintf.h": "c"
+        "libftprintf.h": "c",
+        "minirt.h": "c"
     }
 }
