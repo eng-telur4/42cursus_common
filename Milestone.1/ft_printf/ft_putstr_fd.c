@@ -6,11 +6,11 @@
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:39:24 by skamijo           #+#    #+#             */
-/*   Updated: 2024/11/10 03:19:34 by skamijo          ###   ########.fr       */
+/*   Updated: 2025/02/13 00:17:48 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putstr_fd(char *s, int fd)
 {

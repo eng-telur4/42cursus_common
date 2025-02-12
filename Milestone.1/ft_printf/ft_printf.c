@@ -6,16 +6,37 @@
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:43:02 by skamijo           #+#    #+#             */
-/*   Updated: 2025/02/09 20:52:38 by skamijo          ###   ########.fr       */
+/*   Updated: 2025/02/13 01:22:32 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
+
+int	handle_percent(const char *str, va_list ap)
+{
+	if (*str == 'c')
+		return (do_procedure_c(ap));
+	else if (*str == 's')
+		return (do_procedure_s(ap));
+	else if (*str == 'p')
+		return (do_procedure_p(ap));
+	else if (*str == 'd' || *str == 'i')
+		return (do_procedure_di(ap));
+	else if (*str == 'u')
+		return (do_procedure_u(ap));
+	else if (*str == 'x')
+		return (do_procedure_x(ap));
+	else if (*str == 'X')
+		return (do_procedure_upperx(ap));
+	else if (*str == '%')
+		return (do_procedure_percent());
+	else
+		return (do_procedure_other(*str));
+}
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
-	char	tmp_c[17];
 	int		ret;
 
 	ret = 0;
@@ -25,34 +46,7 @@ int	ft_printf(const char *str, ...)
 		if (is_percent(*str))
 		{
 			str++;
-			if (*str == 'c')
-				ret += ft_putchar_fd(va_arg(ap, int), STDOUT_FILENO);
-			else if (*str == 's')
-				ret += ft_putstr_fd(va_arg(ap, char *), STDOUT_FILENO);
-			else if (*str == 'p')
-			{
-				ft_itoa_ull((unsigned long long)va_arg(ap, void *), tmp_c,
-					"0123456789abcdef", 16);
-				ret += ft_putstr_fd("0x", STDOUT_FILENO);
-				ret += ft_putstr_fd(tmp_c, STDOUT_FILENO);
-			}
-			else if (*str == 'd' || *str == 'i')
-				ret += ft_putnbr_fd(va_arg(ap, int), STDOUT_FILENO);
-			else if (*str == 'u')
-				ret += ft_putnbr_fd_u(va_arg(ap, unsigned int), STDOUT_FILENO);
-			else if (*str == 'x')
-				ret += ft_putnbr_fd_base(va_arg(ap, long long),
-						"0123456789abcdef", 16, STDOUT_FILENO);
-			else if (*str == 'X')
-				ret += ft_putnbr_fd_base(va_arg(ap, long long),
-						"0123456789ABCDEF", 16, STDOUT_FILENO);
-			else if (*str == '%')
-				ret += ft_putchar_fd('%', STDOUT_FILENO);
-			else
-			{
-				ret += ft_putchar_fd('%', STDOUT_FILENO);
-				ret += ft_putchar_fd(*str, STDOUT_FILENO);
-			}
+			ret += handle_percent(str, ap);
 		}
 		else
 			ret += ft_putchar_fd(*str, STDOUT_FILENO);

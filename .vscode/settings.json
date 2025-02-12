@@ -24,6 +24,8 @@
     },
     "files.associations": {
         "libftprintf.h": "c",
-        "minirt.h": "c"
+        "minirt.h": "c",
+        "ft_printf.h": "c",
+        "stdint.h": "c"
     }
 }

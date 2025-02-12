@@ -5,7 +5,6 @@ AR		= ar rcs
 RM		= rm -f
 
 MANDATORY_SRCS = is_percent.c\
-				 ft_isdigit.c\
 				 ft_itoa_ull.c\
 				 ft_printf.c\
 				 ft_putchar_fd.c\
@@ -13,7 +12,8 @@ MANDATORY_SRCS = is_percent.c\
 				 ft_putnbr_fd_base.c\
 				 ft_putnbr_fd_u.c\
 				 ft_putstr_fd.c\
-				 ft_strlen.c
+				 ft_printf_funcs01.c\
+				 ft_printf_funcs02.c
 
 BONUS_SRCS = ft_printf_bonus.c
 

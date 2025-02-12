@@ -6,13 +6,13 @@
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:40:44 by skamijo           #+#    #+#             */
-/*   Updated: 2025/02/09 20:52:39 by skamijo          ###   ########.fr       */
+/*   Updated: 2025/02/13 02:04:21 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-char	*ft_itoa_ull(unsigned long long val, char *a, char *base,
+void	ft_itoa_ull(unsigned long long val, char *a, char *base,
 		unsigned long long radix)
 {
 	char				*p;
@@ -39,5 +39,4 @@ char	*ft_itoa_ull(unsigned long long val, char *a, char *base,
 		*p = base[v % radix];
 		v /= radix;
 	}
-	return (a);
 }

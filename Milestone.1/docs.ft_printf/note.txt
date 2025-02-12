@@ -1,0 +1,27 @@
+printf("%x\n", LONG_MAX);をすると「ffffffff」と出力され、戻り値が9
+printf("%x\n", LONG_MIN);をすると「0」と出力され、戻り値が2
+printf("%x\n", UINT_MAX);をすると「ffffffff」と出力され、戻り値が9
+printf("%x\n", ULONG_MAX);をすると「ffffffff」と出力され、戻り値が9
+printf("%x\n", 9223372036854775807LL);をすると「ffffffff」と出力され、戻り値が9
+以上のように出力されるはずですが、いかの関数のどこがだめですか
+int	ft_putnbr_fd_base(long long n, char *base, int base_num, int fd)
+{
+	int	ret;
+
+	ret = 0;
+	if (n >= base_num)
+	{
+		ret += ft_putnbr_fd_base(n / base_num, base, base_num, fd);
+		ret += ft_putnbr_fd_base(n % base_num, base, base_num, fd);
+	}
+	else
+		ret += ft_putchar_fd(base[n], fd);
+	return (ret);
+}
+
+だめですね、変わりません。現状を以下に示します
+printf("%x\n", LONG_MAX);をすると「7fffffffffffffff」と出力され、戻り値が17
+printf("%x\n", LONG_MIN);をすると「8000000000000000」と出力され、戻り値が2
+printf("%x\n", UINT_MAX);をすると「ffffffff」と出力され、戻り値が9
+printf("%x\n", ULONG_MAX);をすると「ffffffffffffffff」と出力され、戻り値が17
+printf("%x\n", 9223372036854775807LL);をすると「7fffffffffffffff」と出力され、戻り値が17
