@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpinto-r <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 21:19:40 by bgoncalv          #+#    #+#             */
-/*   Updated: 2022/04/25 02:16:14 by rpinto-r         ###   ########.fr       */
+/*   Created: 2025/02/13 03:46:35 by skamijo           #+#    #+#             */
+/*   Updated: 2025/02/13 03:46:36 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ typedef struct s_list	t_list;
 
 typedef struct s_list
 {
-	int		fd;
-	char	*s_left;
-	t_list	*prev;
-	t_list	*next;
-}	t_list;
+	int					fd;
+	char				*s_left;
+	t_list				*prev;
+	t_list				*next;
+}						t_list;
 
 static t_list	*list_init(int fd)
 {
