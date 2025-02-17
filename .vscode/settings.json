@@ -26,6 +26,9 @@
         "libftprintf.h": "c",
         "minirt.h": "c",
         "ft_printf.h": "c",
-        "stdint.h": "c"
+        "stdint.h": "c",
+        "libft.h": "c",
+        "get_next_line.h": "c",
+        "stdlib.h": "c"
     }
 }
