@@ -29,6 +29,8 @@
         "stdint.h": "c",
         "libft.h": "c",
         "get_next_line.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "stdio.h": "c",
+        "stddef.h": "c"
     }
 }
