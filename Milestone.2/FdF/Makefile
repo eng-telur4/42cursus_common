@@ -1,0 +1,34 @@
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror
+RM			= rm -rf
+NORM		= norminette
+NAME		= main
+SRC_DIR		= src
+INC_DIR		= in
+SRCS 		= main.c
+OBJS 		= $(SRCS:.c=.o)
+
+
+### LIBRARIES ###
+MLX_FLAG	= -lmlx_Linux -lXext -lX11
+MLX_DIR		= $(SRC_DIR)/minilibx-linux
+
+
+### RULES ###
+all: $(NAME)
+
+.c.o:
+	$(CC) -I $(INC_DIR) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
+	$(MAKE) -C $(MLX_DIR)
+	$(CC) $(OBJS) $(CFLAGS) $(MLX_FLAG) -L $(MLX_DIR) -o $(NAME) -lm
+
+clean:
+	$(MAKE) -C $(MLX_DIR) clean
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all

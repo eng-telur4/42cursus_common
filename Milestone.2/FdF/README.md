@@ -165,18 +165,7 @@ The bonus part will only be assessed if the mandatory part is　PERFECT. Perfect
 
 ## Chapter Ⅶ - Submission and peer-evaluation
 
-Turn in your assignment in your Git repository as usual. Only the work inside your repository will be evaluated during the defense. Don’t hesitate to double check the names of your files to ensure they are correct.
-
-As these assignments are not verified by a program, feel free to organize your files as you wish, as long as you turn in the mandatory files and comply with the requirements.
-
-file.bfe:VADYjxBiOQSAWNqB652klCj13URaziELdHd+2Z38XCMD9dvO9tSyFob6Il3NBX9YXrgZEiQK7JZJ7w5t0N80wMl7
-
-# FdF
-
-ワイヤーフレームモデル
-
-概要
-
+Turn in your assignment in your Git repository as usual. Only the work inside your repository will be evisometric projection
 このプロジェクトは、風景を3Dオブジェクトとして表現することである。
 
 バージョン: 3
@@ -197,8 +186,7 @@ Ghosts'n Goblinsは、プレイヤーがアーサー卿という名の騎士を�
 
 - Ports
 エリート・システムズ社により、家庭用コンピュータへのコンバージョンが多数制作された。
-  - 1986年に発売されたコモドール64版は、フレデリック・ショパンの前奏曲第20番を引用したマーク・クックシーによる音楽で知られる。コモドール64のリソースが限られていたため、アーケード版とは多少異なる。墓場と森」、「氷の宮殿」、「浮遊台と火の橋」、「洞窟」の順にしか登場しない。また、プレイヤーは5つのライフを持ってゲームを開始する。タイトル画面では、姫をさらった悪魔がアスタロトに代わって登場する。さらに、サイクロプス（またはユニコーン）がレベル1から3のボスで、ドラゴンがラスボスである。
-  - 同じく1986年にエリートシステムズから発売されたコモドール16/116とコモドールプラス/4用のバージョンは、C64バージョンよりもさらに制限されていた。RAMが16KBしかないコモドール16で動くように書かれていた。そのため、このバージョンには2つのレベルしかなく、音楽もない。さらに、残りの2つのレベルとゲームプレイは簡略化されている。たとえば、墓場レベルでは、襲ってくる鳥、植物の怪物、翼のある悪魔がC16版にはなく、武器も1つしかない。タイトル画面には、スタイル化されたGhosts 'n Goblinsの文字以外にグラフィックはない。
+  - 1986年に発売されたコモドール64版isometric projectionには、スタイル化されたGhosts 'n Goblinsの文字以外にグラフィックはない。
   - 1990年にはコモドール・アミーガ版も発売された。Amigaの先進的なハードウェアにより、アーケードゲームをほぼ完璧に変換することができたが、コモドール64版の成功を模倣することはできなかった。プレイヤーは6つのライフでゲームを開始し、Amigaに少なくとも1メガバイトのRAMが搭載されていなければ音楽は流れない。アミーガ500の標準構成は512キロバイトだった。
   - ファミコン版はマイクロニクスが開発した。これはゲームボーイカラー版のベースにもなっており、パスワードを使って特定のレベルにジャンプできるようになっている。ファミコン版はクラシックファミコンシリーズの一環としてゲームボーイアドバンスに移植されたが、日本でのみ発売された。
   - また、北米では2007年12月10日（Wii）と2012年10月25日（ニンテンドー3DS）に、PAL地域では2008年10月31日（Wii）と2013年1月3日（ニンテンドー3DS）に、Wii U版は2013年5月30日に両地域で発売された。アーケード版はWiiのバーチャルコンソールアーケードで日本では2010年11月16日に、PAL地域では2011年1月7日に、北米では2011年1月10日に発売された。
@@ -343,6 +331,12 @@ libft をできる限りうまく使うことを忘れないでください！ge
 これらの課題はプログラムによって検証されないので、必須ファイルを提出し、要件を遵守している限り、ファイルを自由に整理してください。
 
 file.bfe:VADYjxBiOQSAWNqB652klCj13URaziELdHd+2Z38XCMD9dvO9tSyFob6Il3NBX9YXrgZEiQK7JZJ7w5t0N80wMl7
+
+### メモ
+
+- アイソメトリックプロジェクション(Isometric Projection)
+  - あるイラストの横幅、奥行き、高さがそれぞれ120度になるように描く図法で、日本語ではこれを等角投影法といわれる
+  - この方法を用いることで、二次元画像を立体的に見せることが可能になる
 
 ### 参考サイト
 
