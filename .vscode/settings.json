@@ -31,6 +31,10 @@
         "get_next_line.h": "c",
         "stdlib.h": "c",
         "stdio.h": "c",
-        "stddef.h": "c"
+        "stddef.h": "c",
+        "stdbool.h": "c",
+        "main.h": "c",
+        "limits.h": "c",
+        "cstdlib": "c"
     }
 }

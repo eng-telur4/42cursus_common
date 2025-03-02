@@ -113,24 +113,24 @@ You will create your first machine in VirtualBox (or UTM if you can’t use Virt
 
 ## Chapter Ⅲ - General guidelines
 
-- 「VirtualBox」の使用は必須です。
-- リポジトリのルートに 「signature.txt 」ファイルを置くだけです。あなたのマシンの仮想ディスクの署名を貼り付ける必要があります。詳しくは投稿と相互評価のページをご覧ください。
+- [x] 「VirtualBox」の使用は必須です。
+- [x] リポジトリのルートに 「signature.txt 」ファイルを置くだけです。あなたのマシンの仮想ディスクの署名を貼り付ける必要があります。詳しくは投稿と相互評価のページをご覧ください。
 
 ## Chapter Ⅳ - Mandatory part
 
 1. このプロジェクトは、特定のルールに従って、最初のサーバーをセットアップしてもらうというものです。
-2. <u>サーバーを立ち上げるだけなので、最低限のサービスをインストールします。そのため、グラフィカル・インターフェイスは必要ありません。</u>そのため、X.orgやそれに準ずるグラフィックサーバーをインストールすることは禁止されています。さもなければ、あなたの成績は0点となります。
-3. オペレーティングシステムは、「Debian」の最新安定版か、 「Rocky」の最新安定版のいずれかを選択しなければなりません。システム管理初心者には「Debian」を強く推奨します。
+2. [x] <u>サーバーを立ち上げるだけなので、最低限のサービスをインストールします。そのため、グラフィカル・インターフェイスは必要ありません。</u>そのため、X.orgやそれに準ずるグラフィックサーバーをインストールすることは禁止されています。さもなければ、あなたの成績は0点となります。
+3. [x] オペレーティングシステムは、「Debian」の最新安定版か、 「Rocky」の最新安定版のいずれかを選択しなければなりません。システム管理初心者には「Debian」を強く推奨します。
 4. ~~Rocky のセットアップは非常に複雑です。そのため、KDumpの設定は不要です。ただし、起動時にSELinuxが動作している必要があり、その設定をプロジェクトのニーズに合わせる必要がある。Debian用のAppArmorもスタートアップで起動しておく必要がある。~~
-5. 「LVM」を使って、少なくとも2つの暗号化パーティションを作成する必要があります。以下は、想定されるパーティション分割の例です：
+5. [x] 「LVM」を使って、少なくとも2つの暗号化パーティションを作成する必要があります。以下は、想定されるパーティション分割の例です：
    - <img src="./image00.png" width=750>
-6. ディフェンスでは、選択したオペレーティング・システムについていくつか質問されます。例えば、aptitudeとaptの違いや、SELinuxやAppArmorとは何か、などです。要するに、自分が使っているものを理解するのです！
+6. [ ] ディフェンスでは、選択したオペレーティング・システムについていくつか質問されます。例えば、aptitudeとaptの違いや、SELinuxやAppArmorとは何か、などです。要するに、自分が使っているものを理解するのです！
 7. [x] <span style="background-color: pink; color: black; font-weight: bold;">仮想マシンの必須ポート4242で「SSH」サービスが実行されますセキュリティ上の理由から、rootとして「SSH」を使って接続することはできません。</span>
-8. [x] <span style="background-color: pink; color: black; font-weight: bold;">SSHの使用は、新しいアカウントを設定することによって、防衛中にテストされます。そのため、その仕組みを理解しておく必要がある。</span>
+8. [ ] <span style="background-color: pink; color: black; font-weight: bold;">SSHの使用は、新しいアカウントを設定することによって、防衛中にテストされます。そのため、その仕組みを理解しておく必要がある。</span>
 9.  [x] <span style="background-color: pink; color: black; font-weight: bold;">オペレーティングシステムに「UFW」ファイアウォールを設定し、仮想マシンでポート 4242 のみを開放しておく必要があります。</span>
 10. [x] <span style="background-color: pink; color: black; font-weight: bold;">仮想マシンを起動する際には、ファイアウォールが有効になっている必要があります。</span>~~Rockyの場合は、UFWの代わりにfirewalldを使用する必要があります。~~
 11. \
-    - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">仮想マシンの「ホスト名」は、42で終わるログイン名でなければなりません。評価中にこのホスト名を変更する必要があります。</span>
+    - [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">仮想マシンの「ホスト名」は、42で終わるログイン名でなければなりません。評価中にこのホスト名を変更する必要があります。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">文字列パスワードポリシーを実装する必要があります。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">厳密なルールに従って「sudo」をインストールし、設定する必要があります。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">rootユーザーに加えて、あなたのログイン名をユーザー名とするユーザーが存在しなければなりません。</span>
