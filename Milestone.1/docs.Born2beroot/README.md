@@ -124,19 +124,19 @@ You will create your first machine in VirtualBox (or UTM if you can’t use Virt
 4. ~~Rocky のセットアップは非常に複雑です。そのため、KDumpの設定は不要です。ただし、起動時にSELinuxが動作している必要があり、その設定をプロジェクトのニーズに合わせる必要がある。Debian用のAppArmorもスタートアップで起動しておく必要がある。~~
 5. [x] 「LVM」を使って、少なくとも2つの暗号化パーティションを作成する必要があります。以下は、想定されるパーティション分割の例です：
    - <img src="./image00.png" width=750>
-6. [ ] ディフェンスでは、選択したオペレーティング・システムについていくつか質問されます。例えば、aptitudeとaptの違いや、SELinuxやAppArmorとは何か、などです。要するに、自分が使っているものを理解するのです！
+6. [x] ディフェンスでは、選択したオペレーティング・システムについていくつか質問されます。例えば、aptitudeとaptの違いや、SELinuxやAppArmorとは何か、などです。要するに、自分が使っているものを理解するのです！
 7. [x] <span style="background-color: pink; color: black; font-weight: bold;">仮想マシンの必須ポート4242で「SSH」サービスが実行されますセキュリティ上の理由から、rootとして「SSH」を使って接続することはできません。</span>
-8. [ ] <span style="background-color: pink; color: black; font-weight: bold;">SSHの使用は、新しいアカウントを設定することによって、防衛中にテストされます。そのため、その仕組みを理解しておく必要がある。</span>
+8. [x] <span style="background-color: pink; color: black; font-weight: bold;">SSHの使用は、新しいアカウントを設定することによって、防衛中にテストされます。そのため、その仕組みを理解しておく必要がある。</span>
 9.  [x] <span style="background-color: pink; color: black; font-weight: bold;">オペレーティングシステムに「UFW」ファイアウォールを設定し、仮想マシンでポート 4242 のみを開放しておく必要があります。</span>
 10. [x] <span style="background-color: pink; color: black; font-weight: bold;">仮想マシンを起動する際には、ファイアウォールが有効になっている必要があります。</span>~~Rockyの場合は、UFWの代わりにfirewalldを使用する必要があります。~~
 11. \
-    - [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">仮想マシンの「ホスト名」は、42で終わるログイン名でなければなりません。評価中にこのホスト名を変更する必要があります。</span>
+    - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">仮想マシンの「ホスト名」は、42で終わるログイン名でなければなりません。評価中にこのホスト名を変更する必要があります。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">文字列パスワードポリシーを実装する必要があります。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">厳密なルールに従って「sudo」をインストールし、設定する必要があります。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">rootユーザーに加えて、あなたのログイン名をユーザー名とするユーザーが存在しなければなりません。</span>
       - skamijo
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">このユーザーは 「user42 」グループと 「sudo 」グループに属さなければならない。</span>
-12. [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">防御を解除するには、新しいユーザーを作成し、グループに割り当てる必要があります。</span>
+12. [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">防御を解除するには、新しいユーザーを作成し、グループに割り当てる必要があります。</span>
 13. [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">文字列パスワード・ポリシーを設定するには、以下の要件を満たす必要がある。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">パスワードの有効期限は30日であること。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">パスワードが変更されるまでの最短日数は2日に設定される。</span>
@@ -146,7 +146,7 @@ You will create your first machine in VirtualBox (or UTM if you can’t use Virt
       - PASS_WARN_AGE 7
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">パスワードは10文字以上でなければならない。大文字、小文字、数字を含む必要があります。また、同じ文字が3つ以上連続してはいけません。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">パスワードにはユーザー名を含めてはならない。</span>
-    - [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">rootパスワードには、以下のルールは適用されない：パスワードには、以前のパスワードの一部ではない文字が少なくとも7文字含まれていなければならない。</span>
+    - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">rootパスワードには、以下のルールは適用されない：パスワードには、以前のパスワードの一部ではない文字が少なくとも7文字含まれていなければならない。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">もちろん、ルート・パスワードはこのポリシーに従わなければならない。</span>
       | command          | meaning                                                     |
       | :--------------- | :---------------------------------------------------------- |
@@ -159,7 +159,7 @@ You will create your first machine in VirtualBox (or UTM if you can’t use Virt
       | reject_username  | パスワードはユーザ名を含めてはならない                      |
       | difok=7          | 旧パスワードと比較して、少なくとも7文字以上異なる必要がある |
       | enforce_for_root | この設定をrootユーザにも適用する                            |
-14. [ ] <span style="background-color: lightgreen; color: black; font-weight: bold;">設定ファイルをセットアップした後、rootアカウントを含め、仮想マシンに存在するすべてのアカウントのパスワードを変更する必要があります。</span>
+14. [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">設定ファイルをセットアップした後、rootアカウントを含め、仮想マシンに存在するすべてのアカウントのパスワードを変更する必要があります。</span>
 15. [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">「sudo 」グループの文字列設定を行うには、以下の条件を満たす必要がある：</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">「sudo」を使用した認証は、パスワードが間違っている場合の試行回数を3回に制限しなければならない。</span>
     - [x] <span style="background-color: lightgreen; color: black; font-weight: bold;">sudo "使用時にパスワード間違いによるエラーが発生した場合、任意のカスタムメッセージを表示する必要があります。</span>
@@ -213,7 +213,7 @@ You will create your first machine in VirtualBox (or UTM if you can’t use Virt
       - MACアドレス：```mac=$(ip link show | grep "ether" | awk '{print $2}')```
     - [x] <span style="background-color: skyblue; color: black; font-weight: bold;">「sudo」プログラムで実行されたコマンドの数。</span>
       - sudo コマンドの実行回数：```cmds=$(journalctl _COMM=sudo | grep COMMAND | wc -l)```
-19. [ ] <span style="background-color: skyblue; color: black; font-weight: bold;">守備では、このスクリプトがどのように機能するかを説明するよう求められる。 また、スクリプトを修正せずに中断する必要があります。 cronを見てください。</span>
+19. [x] <span style="background-color: skyblue; color: black; font-weight: bold;">守備では、このスクリプトがどのように機能するかを説明するよう求められる。 また、スクリプトを修正せずに中断する必要があります。 cronを見てください。</span>
 20. [x] <span style="background-color: skyblue; color: black; font-weight: bold;">これは、スクリプトがどのように動作するかの例です。</span>
 21. [x] <span style="background-color: skyblue; color: black; font-weight: bold;">以下は、対象の要件のいくつかをチェックするために使用できる2つのコマンドです：</span>
 
