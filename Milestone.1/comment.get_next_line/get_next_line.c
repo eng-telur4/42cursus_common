@@ -6,7 +6,7 @@
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 22:39:34 by skamijo           #+#    #+#             */
-/*   Updated: 2025/03/06 21:10:06 by skamijo          ###   ########.fr       */
+/*   Updated: 2025/03/06 22:24:42 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ char	*cut_line(char *buffer, char *line)
 	char	*new_buffer;
 	int		line_len;
 
-	// bufferかlineがNULLの場合は、bufferをそのまま返す
-	if (!buffer || !line)
-		return (buffer);
+	// bufferかlineがNULLの場合は、bufferをそのまま返す(get_next_lineでbufferとlineのNULLチェックをしているため、ここには来ない)
+	// if (!buffer || !line)
+	// return (buffer);
 	// lineの長さを取得
 	line_len = ft_strlen(line);
 	// bufferの長さがlineの長さと等しい場合(つまり、bufferが空になる場合)、NULLを返す

@@ -5,30 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 03:53:34 by skamijo           #+#    #+#             */
-/*   Updated: 2025/02/17 19:54:15 by skamijo          ###   ########.fr       */
+/*   Created: 2025/02/28 21:40:10 by skamijo           #+#    #+#             */
+/*   Updated: 2025/03/06 22:23:51 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <stdint.h> // SIZE_MAX
-# include <stdlib.h> // malloc
+# include <stddef.h> // size_t, NULL
+# include <stdlib.h> // malloc, free
 # include <unistd.h> // read
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 3 // デフォルト値
+#  define BUFFER_SIZE 32
 # endif
 
 char	*get_next_line(int fd);
-void	*ft_calloc(size_t nmemb, size_t size);
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_bzero(void *s, size_t n);
+char	*cut_line(char *buffer, char *line);
+char	*add_reads(char *buffer, int fd);
+char	*new_read(int fd);
 char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *s);
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
+char	*ft_substr(char const *str, unsigned int start, size_t len);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 
-#endif // GET_NEXT_LINE_H
+#endif
