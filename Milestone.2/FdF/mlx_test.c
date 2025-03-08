@@ -6,44 +6,14 @@
 /*   By: skamijo <skamijo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 19:37:48 by skamijo           #+#    #+#             */
-/*   Updated: 2025/03/02 00:34:16 by skamijo          ###   ########.fr       */
+/*   Updated: 2025/03/09 03:44:25 by skamijo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/mlx.h"
+#include "minilibx-linux/mlx.h"
 #include <X11/X.h>
 #include <X11/keysym.h>
 #include <stdio.h>
-
-// int	event_handler(int key, void *mlx)
-// {
-// 	(void)key;
-// 	(void)mlx;
-// 	printf("called\n");
-// 	return (0);
-// }
-
-// int	main(void)
-// {
-// 	void	*mlx;
-// 	void	*mlx_win;
-
-// 	mlx = mlx_init();
-// 	mlx_win = mlx_new_window(mlx, 300, 300, "Hello World");
-// 	mlx_hook(mlx_win, KeyPress, KeyPressMask, event_handler, mlx);
-// 	mlx_loop(mlx);
-// }
-
-// int	main(void)
-// {
-// 	void	*mlx;
-// 	void	*mlx_win;
-
-// 	mlx = mlx_init();
-// 	mlx_win = mlx_new_window(mlx, 300, 300, "Hello World");
-// 	mlx_loop(mlx);
-// 	(void)mlx_win;
-// }
 
 typedef struct s_data
 {
